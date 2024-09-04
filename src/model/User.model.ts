@@ -1,12 +1,12 @@
 import mongoose, { Schema, Document } from "mongoose";
 import { blob } from "stream/consumers";
 
-export interface Massage extends Document {
+export interface Message extends Document {
     content: string,
     createdAt: Date
 }
 
-const MassageSchema: Schema<Massage> = new Schema({
+const MessageSchema: Schema<Message> = new Schema({
     content: {
         type: String,
         required: true
@@ -28,7 +28,7 @@ export interface User extends Document {
     verifyCodeExpiry: Date,
     isVerified: boolean,
     isAcceptingMassage: boolean,
-    massage: Massage[]
+    message: Message[]
 }
 
 
@@ -67,7 +67,7 @@ const UserSchema: Schema<User> = new Schema({
         type: Boolean,
         default: true
     },
-    massage: [MassageSchema]
+    message: [MessageSchema]
 })
 
 const UserModel = (mongoose.models.User as mongoose.Model<User>) || (mongoose.model<User>("User", UserSchema))
