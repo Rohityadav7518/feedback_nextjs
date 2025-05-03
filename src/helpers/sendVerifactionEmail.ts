@@ -22,8 +22,8 @@ export async function sendVerificationEmail(
             success: true, massages: 'Verification Email Send Successfully'
         }
     } catch (emailError) {
-        console.error("Error Sending Verification Email  ", emailError)
-        return { success: false, massages: 'failed to send Verification Email ' }
+        // console.error("Error Sending Verification Email  ", emailError)
+        return { success: false, massages: 'failed to send Verification Email ',emailError }
 
     }
 }
